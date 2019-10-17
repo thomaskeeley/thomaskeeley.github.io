@@ -57,7 +57,7 @@ ul li {
 	width: 890px;
 	position: relative;
 	height: 200px;
-	background: url(images/coin.jpg) no-repeat center;
+	background: url(coin.jpg) no-repeat center;
 	float: center;
 }
 
@@ -145,7 +145,7 @@ ul#menu li a:hover {
 
 #content ul li {
 	list-style-type: none;
-	background: url(images/bullet.png) no-repeat;
+	background: url(bullet.png) no-repeat;
 	margin: 0 0 6px 0;
 	padding: 0 0 4px 25px;
 	line-height: 1.5em;
