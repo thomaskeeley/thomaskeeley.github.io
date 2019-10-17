@@ -1,0 +1,117 @@
+<html>
+<head>
+	<title>National Expenditures</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawAllSheets);
+		
+		function drawAllSheets() {
+			drawSheetName('GDP', 'SELECT A,S',
+						   gdpmapResponseHandler);
+			drawSheetName('GDP', 'SELECT A,L,M,N,O,P,Q,R',
+						   columnResponseHandler);
+			drawSheetName('Total_Exp', 'SELECT A,Q',
+						   barResponseHandler);
+	
+		} // draw all sheets
+		
+		function drawSheetName(sheetName, query, responseHandler) {
+			var queryString = encodeURIComponent(query);
+			var query = new google.visualization.Query(
+				'https://docs.google.com/spreadsheets/d/15DyH5VaAKA8xslkrsYJRkolgcYDOVEZ9dsgGuxYcXBQ/gviz/tq?sheet=' + sheetName + '&headers=1&tq=' +queryString  
+			);
+			
+			query.send(responseHandler);
+		} //drawSheetName
+		
+		function gdpmapResponseHandler(response){
+			//get the data
+			var data = response.getDataTable();
+			
+			//set the options
+			var options = {
+					height: 400,
+					colorAxis: {colors: ['#e6d4aa', '#daa520']},
+					title: 'Top 15 Countries by GDP (Trillions)'
+			}; //options
+			
+			//create the chart and draw it
+			var chart = new google.visualization.GeoChart(document.getElementById('gdp_map_div'));
+			chart.draw(data, options);
+		}
+		function columnResponseHandler(response){
+			//get the data
+			var data = response.getDataTable();
+			
+			//set options
+			var options = {height: 400,
+						   vAxis: {title: 'GDP 2010-2016 in Trillions'},
+						   hAxis: {title: 'Country'},
+						   colors: ['#e6d4aa', '#daa520']
+			}; //options
+	
+			//create the chart and draw it
+			var chart = new google.visualization.ColumnChart(document.getElementById('column_div'));
+			chart.draw(data, options);
+			
+		} //columnResponseHandler
+		
+		function barResponseHandler(response){
+			//get the data
+			var data = response.getDataTable();
+			
+			//set options
+			var options = {height: 400,
+						   bars: 'horizontal',
+						   hAxis: {title: 'Total Expenditures in Trillions'},
+						   vAxis: {title: 'Country'},
+						   colors: ['#daa520']
+						  
+			}; //options
+			
+			var chart = new google.visualization.BarChart(document.getElementById('bar_div'));
+			chart.draw(data, options);
+		
+		} //barResponseHandler
+		
+	</script>
+</head>
+
+<body>
+	<div id="main">
+		<div id="header">
+			<div id="logo">
+				<div id="logo_text">
+					<h1><a href="index.html">
+							National Expenditures
+					    </a></h1>
+				</div><!-- logo_text -->
+			</div><!-- logo -->
+			<div class='container'>
+				<ul id="menu">
+					<li class="selected"><a href="index.html">Home</a></li>
+					<li><a href="gdp.html">GDP</a></li>
+					<li><a href="military.html">Military</a></li>
+					<li><a href="education.html">Education</a></li>
+					<li><a href="healthcare.html">Healthcare</a></li>
+					<li><a href="analysis.html">Analysis</a></li>
+					<li><a href="sources.html">Sources</a></li>
+				</ul><!-- menu -->
+			</div><!-- container -->
+		</div><!-- header -->
+		<center><h1>Gross Domestic Product (GDP) and National Expenditures</h1></center>
+		<p></p>
+		<center><h2>Average Gross Domestic Product 2010-2016, Trillions ($)</h2></center>
+		<div id="gdp_map_div" style="width: 900px; height: 500px; margin: 0 auto;"></div>
+		<p></p>
+		<center><h2>Top 15 GDP 2010-2016, Trillions ($)</h2></center>
+		<div id="column_div" style="width: 900px; height: 500px; margin: 0 auto;"></div>
+		<p></p>
+		<center><h2>Average Government Expenditures 2010-2016, Trillions ($)</h2></center>
+		<div id="bar_div" style="width: 900px; height: 500px; margin: 0 auto;"></div>
+		<p></p>
+	</div><!-- main -->
+</body>
+</html>

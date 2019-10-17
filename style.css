@@ -1,0 +1,153 @@
+html {
+	height: 100%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: normal 0.9em arial;
+	background-color: #e4e4e4; 
+	color: #555;
+}
+
+
+h1 {
+	color: #daa520;
+	text-transform: uppercase;
+	font: normal 250% arial;
+	text-shadow: 1px 1px #333;
+}
+
+h2 {
+	color: #444;
+	position: relative;
+	text-align: center;
+}
+
+
+a, a:hover {
+	outline: none;
+	color: #fff;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul {
+	margin: 4px 0px 22px 17px;
+}
+
+ul li {
+	list-style-type: circle;
+	margin: 0 0 6px 0;
+	padding: 0 0 px 5px;
+}
+
+#main, #header, #logo, #site_content, #footer {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logo {
+	width: 890px;
+	position: relative;
+	height: 200px;
+	background: url(images/coin.jpg) no-repeat center;
+	float: center;
+}
+
+#logo_text {
+	position: absolute;
+	top: 60px;
+	left: 68px;
+}
+
+#logo h1, #logo h2 {
+	font: normal 350% arial;
+	border-bottom: 0;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+#logo_text h1, #logo_text h1 a, #logo_text h1 a:hover {
+	padding: 10px 0 0 0;
+	color: #daa520;
+	letter-spacing: 0.1em;
+	text-shadow: 2px 2px #333;
+}
+
+#logo_text h2 {
+	font-size: 130%;
+	padding: 0;
+	color: #daa520;
+	text-shadow: 1.5px 1.5px #333;
+
+}
+
+.container{
+	text-align: center;
+	width: auto;
+	margin: 0 auto;
+}
+
+ul#menu {
+	margin: 0 auto;
+	display: inline-block;
+}
+
+ul#menu li {
+	float: left;
+	margin: 5px 0 0 0;
+	padding: 0 0 0 6px;
+	list-style: none;
+}
+
+ul#menu li a {
+	letter-spacing: 0em;
+	font: normal 105% arial;
+	text-transform: uppercase;
+	display: block;
+	float: center;
+	height: 20px;
+	text-shadow: 0.5px 0.5px #fff;
+	padding: 9px 22px 5px 16px;
+	text-align: center;
+	color: #111;
+	border: 0;
+}
+
+ul#menu li a:hover {
+	color: #888;
+}
+
+#site_content {
+	width: 890px;
+	overflow: hidden;
+	background: #f8f8f8;
+}
+
+
+#content {
+	text-align: left;
+	width: 600px;
+	float: left;
+	padding: 20px 0 15px 50px;
+}
+
+#content ul {
+	margin: 2px 0 22px 0;
+}
+
+#content ul li {
+	list-style-type: none;
+	background: url(images/bullet.png) no-repeat;
+	margin: 0 0 6px 0;
+	padding: 0 0 4px 25px;
+	line-height: 1.5em;
+}
+
